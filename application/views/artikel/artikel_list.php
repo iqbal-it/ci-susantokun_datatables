@@ -3,46 +3,57 @@
 
 <head>
 	<meta charset="utf-8">
-	<title>Tutorial DataTables 2</title>
-	<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.css">
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js" charset="utf-8"></script>
-	<script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.js"></script>
+	<title>Tutorial DataTables #2 | Susantokun</title>
+	<link rel="stylesheet" type="text/css" href="<?=base_url('assets')?>/vendor/semantic/dist/semantic.min.css">
+	<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.19/css/dataTables.semanticui.min.css">
 
-	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+	<script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.js"></script>
 </head>
+<style media="screen">
+	.ui.center.header{
+		padding-top: 50px;
+	}
+</style>
 
 <body>
-	<div class="container">
-		<div class="row">
-			<div class="col-md-12">
+	<h1 class="ui center aligned header">Tutorial DataTables #2 | Susantokun</h1>
 
-				<h1>Tutorial DataTables 2</h1>
-
-				<table id="table_id" class="table table-bordered table-striped table-hover">
-					<thead>
-						<tr>
-							<td>Judul</td>
-							<td>Isi</td>
-						</tr>
-					</thead>
-					<tbody>
-						<?php foreach ($dataArtikel as $row): ?>
-						<tr>
-							<td>
-								<?=$row->judul?>
-							</td>
-							<td>
-								<?=$row->isi?>
-							</td>
-						</tr>
-						<?php endforeach; ?>
-					</tbody>
-				</table>
-
-			</div>
-		</div>
+	<div class="ui container">
+		<table class="ui celled table" style="width:100%" id="table_id">
+			<thead>
+				<tr>
+					<th colspan="3">
+						<h4>Data Artikel</h4>
+					</th>
+				</tr>
+				<tr>
+					<th style="text-align:center">No</th>
+					<th>Judul</th>
+					<th>Isi Judul</th>
+				</tr>
+			</thead>
+			<tbody>
+				<?php
+				$no=1;
+				foreach ($dataArtikel as $row): ?>
+				<tr>
+					<td style="text-align:center">
+						<?=$no++?>
+					</td>
+					<td>
+						<?=$row->judul?>
+					</td>
+					<td>
+						<?=$row->isi?>
+					</td>
+				</tr>
+				<?php endforeach; ?>
+			</tbody>
+		</table>
 	</div>
+	<script type="text/javascript" src="<?=base_url('assets')?>/vendor/semantic/dist/semantic.min.js"></script>
+	<script type="text/javascript" src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
+	<script type="text/javascript" src="https://cdn.datatables.net/1.10.19/js/dataTables.semanticui.min.js"></script>
 	<script type="text/javascript">
 		$(document).ready(function() {
 			$('#table_id').DataTable({
